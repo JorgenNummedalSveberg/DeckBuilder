@@ -1,0 +1,20 @@
+# This is a basic workflow to automatically build a Svelte app and deploy it to GitHub Pages
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+          npm run deploy
