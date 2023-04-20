@@ -23,6 +23,10 @@ jobs:
 
       - name: Build project
         run: npm run build
+        
+      - name: Select repo
+        run:  git remote set-url origin https://www.github.com/YurgenGrimwood/DeckBuilder.git
+
       - name: Add SSH key to ssh-agent
         uses: webfactory/ssh-agent@v0.5.0
         with:
