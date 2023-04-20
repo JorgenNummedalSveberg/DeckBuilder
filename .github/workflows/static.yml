@@ -30,4 +30,7 @@ jobs:
           ssh-private-key: ${{ secrets.PRIVATE_TOKEN }}
 
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          git config -g user.email "jorgen.n.sveberg@gmail.com"
+          git config -g user.name "yurgengrimwood"
+          npm run deploy
