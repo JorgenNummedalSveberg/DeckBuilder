@@ -16,9 +16,6 @@ jobs:
       - name: Build application
         run: |
           npm run build
-          git push --set-upstream origin gh-pages -f -u x-access-token:$GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
