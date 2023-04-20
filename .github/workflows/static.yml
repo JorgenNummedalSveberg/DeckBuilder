@@ -19,8 +19,9 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Add SSH key to ssh-agent
+        uses: webfactory/ssh-agent@v0.5.0
         with:
-          deploy_key: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./dist
+         ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+      - name: Deploy
+        run: npm run deploy
