@@ -25,10 +25,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: master # The branch the action should deploy from.
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: dist # The folder the action should deploy.
-          SINGLE_COMMIT: true
+          deploy_key: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./dist
