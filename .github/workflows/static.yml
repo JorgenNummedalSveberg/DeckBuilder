@@ -16,7 +16,6 @@ jobs:
       - name: Build application
         run: |
           npm run build
-          git remote add origin https://github.com/YurgenGrimwood/DeckBuilder.git
           git push --set-upstream origin gh-pages -f -u x-access-token:$GITHUB_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.DEPLOY_KEY }}
