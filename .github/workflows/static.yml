@@ -24,19 +24,10 @@ jobs:
       - name: Build project
         run: npm run build
         
-      - name: Select repo
-        run:  git remote add origin https://www.github.com/YurgenGrimwood/DeckBuilder.git
-
       - name: Add SSH key to ssh-agent
         uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.PRIVATE_TOKEN }}
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: master # The branch the action should deploy from.
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: dist # The folder the action should deploy.
-          SINGLE_COMMIT: true
+        run: npm deploy
