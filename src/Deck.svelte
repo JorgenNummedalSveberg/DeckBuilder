@@ -42,6 +42,7 @@
         height: 360px;
         min-width: 270px;
         align-items: center;
+        justify-content: center;
     }
     .deck-button-row {
         display: flex;
