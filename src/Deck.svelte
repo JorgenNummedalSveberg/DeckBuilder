@@ -19,7 +19,7 @@
         </div>
         {#each deck.cards as card}
             <div class="card">
-                <div class="button-row">
+                <div style="position: absolute" class="button-row">
                     <button class="remove-button" on:click={RemoveCard(card, deck)}>X</button>
                 </div>
                 <div class="card-title">{card}</div>
@@ -51,7 +51,6 @@
         position: relative;
     }
     .button-row {
-        position: absolute;
         right: 0;
         top: 0;
         display: flex;
