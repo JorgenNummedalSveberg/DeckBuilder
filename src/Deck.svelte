@@ -51,7 +51,6 @@
         position: relative;
     }
     .button-row {
-        position: absolute;
         right: 0;
         top: 0;
         display: flex;
