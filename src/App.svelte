@@ -13,6 +13,10 @@
     deck.cards = [...deck.cards, name];
     decks[decks.indexOf(deck)] = deck;
   }
+  function RemoveCard(card, deck: DeckInterface) {
+    deck.cards = deck.cards.filter(x => x != card);
+    decks = decks;
+  }
 
   function AddDeck(title: string) {
     if (title === "") return;
@@ -83,7 +87,11 @@
           lineWidth: 0.1,
         };
         doc.rect(cell.x, cell.y, cell.w, cell.h);
-        doc.text(cell.x + cell.w / 2, cell.y + cell.h / 2, cell.text, null, null, 'center');
+        const lines = doc.splitTextToSize(cell.text, cell.w - 10);
+        const lineHeight = doc.internal.getLineHeight() / doc.internal.scaleFactor;
+        const textHeight = lines.length * lineHeight;
+        const startY = cell.y + (cell.h - textHeight) / 2 + lineHeight / 2;
+        doc.text(cell.x + cell.w / 2, startY, lines, null, null, 'center');
         backLength++;
         x++;
         if (x > 3) {
@@ -156,7 +164,7 @@
   </div>
   <div class="decks">
     {#each decks as deck}
-      <Deck deck={deck} AddCard={AddCard} RemoveDeck={RemoveDeck}/>
+      <Deck deck={deck} AddCard={AddCard} RemoveCard={RemoveCard} RemoveDeck={RemoveDeck}/>
     {/each}
   </div>
 </main>
