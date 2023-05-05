@@ -66,6 +66,7 @@
     })
 
     const doc = new jsPDF({format: [300, 400]});
+    doc.setMargins(0, 0, 0, 0)
 
     for (let i = 0; i < decks.length; i++){
       let deck = decks[i];
